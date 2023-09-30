@@ -1,5 +1,6 @@
 const express = require('express');
 const cors = require('cors');
+const { factSpitter } = require('./utils/fact-collection');
 
 const app = express();
 app.use(cors());
@@ -18,6 +19,15 @@ app.post('/password', (req, res) => {
 		} else {
 			res.json({ access: false, message: 'Incorrect Password :(' });
 		}
+	}
+});
+
+app.get('/fact', (req, res) => {
+	const collectedFact = factSpitter();
+	try {
+		res.json({ fact: collectedFact });
+	} catch (err) {
+		res.send(err);
 	}
 });
 
