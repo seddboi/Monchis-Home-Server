@@ -41,6 +41,6 @@ app.get('/fact', (req, res) => {
 	}
 });
 
-app.listen(`${process.env.ACCESS_PORT}`, () => {
-	console.log(`running server on port ${process.env.ACCESS_PORT}`);
+app.listen(`${process.env.PORT}`, () => {
+	console.log(`running server on port ${process.env.PORT}`);
 });
