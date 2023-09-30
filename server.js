@@ -3,7 +3,6 @@ const cors = require('cors');
 const { factSpitter } = require('./utils/fact-collection');
 
 const app = express();
-app.use(cors());
 
 require('dotenv').config();
 
@@ -13,6 +12,8 @@ app.use((req, res, next) => {
 	res.header('Access-Control-Allow-Origin', 'https://monchis-world.netlify.app/');
 	next();
 });
+
+app.use(cors());
 
 app.post('/password', (req, res) => {
 	const password = req.body.password;
