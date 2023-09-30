@@ -3,6 +3,7 @@ const cors = require('cors');
 const { factSpitter } = require('./utils/fact-collection');
 
 const app = express();
+app.use(cors());
 
 require('dotenv').config();
 
