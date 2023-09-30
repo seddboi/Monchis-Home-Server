@@ -9,6 +9,11 @@ require('dotenv').config();
 
 app.use(express.json());
 
+app.use((req, res, next) => {
+	res.header('Access-Control-Allow-Origin', 'http://localhost:5173');
+	next();
+});
+
 app.post('/password', (req, res) => {
 	const password = req.body.password;
 	if (password == '') {
