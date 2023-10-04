@@ -28,7 +28,7 @@ app.get('/', (req, res) => {
 });
 
 app.post('/password', (req, res) => {
-	const password = req.body.password;
+	const password = req.query.password;
 	if (password == '') {
 		res.json({ access: false, message: 'Type something in, you silly goose ;)' });
 	} else {
