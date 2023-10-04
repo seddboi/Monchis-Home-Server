@@ -3,7 +3,7 @@ const cors = require('cors');
 const { factSpitter } = require('./utils/fact-collection');
 
 const app = express();
-// app.use(cors());
+app.use(cors());
 
 require('dotenv').config();
 
@@ -31,7 +31,7 @@ app.post('/password', (req, res) => {
 	const password = req.query.password;
 
 	try {
-		if (password === '' || !password) {
+		if (password == '' || !password) {
 			res.json({ access: false, message: 'Error. Try Again.' });
 		} else {
 			if (password === process.env.PASSWORD) {
