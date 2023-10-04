@@ -1,5 +1,5 @@
 const express = require('express');
-const cors = require('cors');
+// const cors = require('cors');
 const { factSpitter } = require('./utils/fact-collection');
 
 const app = express();
@@ -33,7 +33,7 @@ app.post('/password', (req, res) => {
 	const password = req.body.password;
 
 	try {
-		if (password === process.env.PASSWORD) {
+		if (password == process.env.PASSWORD) {
 			res.json({ access: true, message: 'Access Granted :)' });
 		} else {
 			res.json({ access: false, message: 'Incorrect Password :(' });
