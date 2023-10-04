@@ -32,7 +32,7 @@ app.post('/password', (req, res) => {
 
 	try {
 		if (password == '' || !password) {
-			res.json({ access: false, message: 'Error. Try Again.' });
+			res.json({ access: false, message: 'Error. Try Again.', password: password });
 		} else {
 			if (password === process.env.PASSWORD) {
 				res.json({ access: true, message: 'Access Granted :)' });
