@@ -34,7 +34,7 @@ app.post('/password', (req, res) => {
 		// if (password == '') {
 		// 	res.json({ access: false, message: 'Error. Try Again.' });
 		// } else {
-		console.log(password == process.env.PASSWORD);
+		console.log(password, process.env.PASSWORD);
 		if (password == process.env.PASSWORD) {
 			res.json({ access: true, message: 'Access Granted :)' });
 		} else {
