@@ -29,12 +29,13 @@ app.get('/', (req, res) => {
 
 app.post('/password', (req, res) => {
 	const password = req.query.password;
+	const newPass = req.body.password;
 
 	try {
 		// if (password == '') {
 		// 	res.json({ access: false, message: 'Error. Try Again.' });
 		// } else {
-		console.log(req, process.env.PASSWORD);
+		console.log(password, newPass);
 		if (password == process.env.PASSWORD) {
 			res.json({ access: true, message: 'Access Granted :)' });
 		} else {
