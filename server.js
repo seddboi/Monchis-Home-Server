@@ -31,15 +31,15 @@ app.post('/password', (req, res) => {
 	const password = req.query.password;
 
 	try {
-		if (password == '' || !password) {
-			res.json({ access: false, message: 'Error. Try Again.' });
+		// if (password == '') {
+		// 	res.json({ access: false, message: 'Error. Try Again.' });
+		// } else {
+		if (password == process.env.PASSWORD) {
+			res.json({ access: true, message: 'Access Granted :)' });
 		} else {
-			if (password == process.env.PASSWORD) {
-				res.json({ access: true, message: 'Access Granted :)' });
-			} else {
-				res.json({ access: false, message: 'Incorrect Password :(' });
-			}
+			res.json({ access: false, message: 'Incorrect Password :(' });
 		}
+		// }
 	} catch (err) {
 		res.send(err);
 	}
