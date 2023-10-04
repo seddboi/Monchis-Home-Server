@@ -29,14 +29,19 @@ app.get('/', (req, res) => {
 
 app.post('/password', (req, res) => {
 	const password = req.query.password;
-	if (password == '') {
-		res.json({ access: false, message: 'Type something in, you silly goose ;)' });
-	} else {
-		if (password == process.env.PASSWORD) {
-			res.json({ access: true, message: 'Access Granted :)' });
+
+	try {
+		if (password === '') {
+			res.json({ access: false, message: 'Error. Try Again.' });
 		} else {
-			res.json({ access: false, message: 'Incorrect Password :(' });
+			if (password === process.env.PASSWORD) {
+				res.json({ access: true, message: 'Access Granted :)' });
+			} else {
+				res.json({ access: false, message: 'Incorrect Password :(' });
+			}
 		}
+	} catch (err) {
+		res.send(err);
 	}
 });
 
