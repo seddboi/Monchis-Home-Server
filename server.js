@@ -19,6 +19,14 @@ app.use(function (req, res, next) {
 	next();
 });
 
+app.get('/', (req, res) => {
+	try {
+		res.send({ text: 'Bombaclat' });
+	} catch (err) {
+		res.send(err);
+	}
+});
+
 app.post('/password', (req, res) => {
 	const password = req.body.password;
 	if (password == '') {
