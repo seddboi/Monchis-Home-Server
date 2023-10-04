@@ -31,7 +31,7 @@ app.post('/password', (req, res) => {
 	const password = req.query.password;
 
 	try {
-		if (password === '') {
+		if (password === '' || !password) {
 			res.json({ access: false, message: 'Error. Try Again.' });
 		} else {
 			if (password === process.env.PASSWORD) {
